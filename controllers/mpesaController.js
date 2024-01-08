@@ -28,7 +28,7 @@ class MpesaController {
             PartyA: phone,
             PartyB: shortcode,
             PhoneNumber: phone,
-            CallBackURL: "https://ae57-102-215-34-102.ngrok-free.app/mpesa/callback",
+            CallBackURL: "https://5d8c-102-215-34-241.ngrok-free.app/mpesa/callback",
             AccountReference: "Test",
             TransactionDesc: "Test",
         };
@@ -41,7 +41,10 @@ class MpesaController {
 
 
     callbackResponse = (request, response, next) => {
-        console.log(request.body)
+        if (request.body.Body.stkCallback.ResultCode !== 0) {
+            return response.json('ok')
+        }
+        
     }
 }
  
