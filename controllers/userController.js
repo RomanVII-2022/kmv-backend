@@ -110,7 +110,7 @@ class UserController {
                 const isCorrectPassword = await bcrypt.compare(request.body.password, user.password);
                 if (isCorrectPassword) {
                     const token = jwt.sign({data: {...user}}, process.env.SECRETKEYJWT, { expiresIn: '1h' })
-                    const taskResponse = await axios.post('http://127.0.0.1:8000/send-email', {email: request.body.email})
+                    // const taskResponse = await axios.post('http://127.0.0.1:8000/send-email', {email: request.body.email})
                     return response.cookie('access-token', token, {httpOnly: true}).status(200).json({
                         "message": "User login was successful.",
                         "data": token,
