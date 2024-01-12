@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         callback(null, 'public')
     },
     filename: (request, file, callback) => {
-        callback(null, file.fieldname + '_' + Date.now() + '_' + file.originalname)
+        callback(null, Date.now() + '_' + file.name)
     }
 })
 
@@ -21,7 +21,7 @@ const uploadfile = multer({
 router.get('/get-all-users', userController.getAllUsers)
 router.get('/user-details/:id', userController.getSingleUser)
 router.post('/create-user', userController.createuser)
-router.put('/update-user/:id', userController.updateUser)
+router.put('/update-user/:id', uploadfile.single('file'), userController.updateUser)
 router.delete('/delete-user/:id', userController.deleteUser)
 router.post('/login-user', userController.loginuser)
 

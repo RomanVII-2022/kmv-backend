@@ -117,10 +117,10 @@ class UserController {
                         "success": true
                     })
                 }else {
-                    return response.status(400).send({"message": "Kindly check pasword and try again"})
+                    return response.status(400).send({"message": "Kindly check pasword and try again."})
                 }
             }else {
-                return response.status(404).send({"message": "Kindly ensure you have entered the right credentials"})
+                return response.status(404).send({"message": "Kindly ensure you have entered the right credentials."})
             }
         } catch (error) {
             next(error)

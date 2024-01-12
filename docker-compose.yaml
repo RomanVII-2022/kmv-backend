@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  kmvbackend:
+    container_name: kmvbackend_c
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start
+    volumes:
+      - .:/app/
+    ports:
+      - 5555:5555
