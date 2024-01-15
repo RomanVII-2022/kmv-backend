@@ -1,4 +1,5 @@
 import axios from "axios";
+import { response } from "express";
 import moment from "moment";
 
 class MpesaController {
@@ -28,7 +29,7 @@ class MpesaController {
             PartyA: phone,
             PartyB: shortcode,
             PhoneNumber: phone,
-            CallBackURL: "https://5d8c-102-215-34-241.ngrok-free.app/mpesa/callback",
+            CallBackURL: "https://d8f5-105-163-157-202.ngrok-free.app/mpesa/callback",
             AccountReference: "Test",
             TransactionDesc: "Test",
         };
@@ -39,12 +40,8 @@ class MpesaController {
         return response.status(200).json({"message": "Kindly check your phone", "data": resp.data})
     }
 
-
-    callbackResponse = (request, response, next) => {
-        if (request.body.Body.stkCallback.ResultCode !== 0) {
-            return response.json('ok')
-        }
-        
+    mpesaCallback = (request, response, next) => {
+        console.log('hello world')
     }
 }
  
