@@ -8,3 +8,16 @@
 1. Ensure you have Docker and Docker Compose downloaded on your machine
 2. Run docker compose up
 3. Server should be running on port 5555
+
+## NB: 
+1. To view docker images:
+
+> docker images
+
+2. To view active containers:
+
+> docker ps
+
+3. To view all containers:
+
+> docker ps -a
